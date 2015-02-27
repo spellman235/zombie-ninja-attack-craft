@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<presets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<preset name="Small Tile">
+		<SystemName>Small Tiles</SystemName>
+		<TileWidth>0.266</TileWidth>
+		<TileHeight>0.266</TileHeight>
+		<TileDepth>0.266</TileDepth>
+		<Rows>300</Rows>
+		<Columns>900</Columns>
+		<ChunkWidth>60</ChunkWidth>
+		<ChunkHeight>60</ChunkHeight>
+		<TilesFacing>Sideways</TilesFacing>
+		<Direction>Forward</Direction>
+		<StrippingPreset>StripRuntime</StrippingPreset>
+		<StrippingOptions>175</StrippingOptions>
+		<CombineMethod>ByChunk</CombineMethod>
+		<CombineChunkWidth>30</CombineChunkWidth>
+		<CombineChunkHeight>30</CombineChunkHeight>
+		<CombineIntoSubmeshes>true</CombineIntoSubmeshes>
+		<StaticVertexSnapping>true</StaticVertexSnapping>
+		<VertexSnapThreshold>0.001</VertexSnapThreshold>
+		<GenerateSecondUVs>false</GenerateSecondUVs>
+		<GenerateSecondUVsParams>
+			<angleError>0.08</angleError>
+			<areaError>0.15</areaError>
+			<hardAngle>88</hardAngle>
+			<packMargin>0.00390625</packMargin>
+		</GenerateSecondUVsParams>
+		<PregenerateProcedural>false</PregenerateProcedural>
+		<HintEraseEmptyChunks>false</HintEraseEmptyChunks>
+		<ApplyRuntimeStripping>false</ApplyRuntimeStripping>
+		<UpdateProceduralAtStart>true</UpdateProceduralAtStart>
+		<AddProceduralNormals>false</AddProceduralNormals>
+	</preset>
+	<preset name="Large Tile">
+		<SystemName>Large Tiles</SystemName>
+		<TileWidth>0.798</TileWidth>
+		<TileHeight>0.798</TileHeight>
+		<TileDepth>0.798</TileDepth>
+		<Rows>100</Rows>
+		<Columns>300</Columns>
+		<ChunkWidth>20</ChunkWidth>
+		<ChunkHeight>20</ChunkHeight>
+		<TilesFacing>Sideways</TilesFacing>
+		<Direction>Forward</Direction>
+		<StrippingPreset>StripRuntime</StrippingPreset>
+		<StrippingOptions>175</StrippingOptions>
+		<CombineMethod>ByChunk</CombineMethod>
+		<CombineChunkWidth>30</CombineChunkWidth>
+		<CombineChunkHeight>30</CombineChunkHeight>
+		<CombineIntoSubmeshes>true</CombineIntoSubmeshes>
+		<StaticVertexSnapping>true</StaticVertexSnapping>
+		<VertexSnapThreshold>0.001</VertexSnapThreshold>
+		<GenerateSecondUVs>false</GenerateSecondUVs>
+		<GenerateSecondUVsParams>
+			<angleError>0.08</angleError>
+			<areaError>0.15</areaError>
+			<hardAngle>88</hardAngle>
+			<packMargin>0.00390625</packMargin>
+		</GenerateSecondUVsParams>
+		<PregenerateProcedural>false</PregenerateProcedural>
+		<HintEraseEmptyChunks>false</HintEraseEmptyChunks>
+		<ApplyRuntimeStripping>false</ApplyRuntimeStripping>
+		<UpdateProceduralAtStart>true</UpdateProceduralAtStart>
+		<AddProceduralNormals>false</AddProceduralNormals>
+	</preset>
+</presets>
