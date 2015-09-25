@@ -10,7 +10,7 @@ public class Indicator : MonoBehaviour
      // Use this for initialization
      void Start()
      {
-
+          GetComponent<SpriteRenderer>().material.color = new Color(1, 1, 1, 0.6f); ;
      }
 
      public void set(int t)

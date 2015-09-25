@@ -29,10 +29,17 @@ public class Projectile : MonoBehaviour
           Destroy(transform.gameObject, TimeToLive);
           homing = shot = false;
           player = FindObjectOfType<Player>();
-          if (GetComponent<DealDamageToShieldBoss>())
-               damageAmount = 1;
+          if (GetComponent<Bolt>())
+          {
+               damageAmount = 0;
+          }
           else
-               damageAmount = GetComponent<DealDamageToPlayer>() ? GetComponent<DealDamageToPlayer>().damageAmount : GetComponent<DealDamageToEnemy>().damageAmount;
+          {
+               if (GetComponent<DealDamageToShieldBoss>())
+                    damageAmount = 1;
+               else
+                    damageAmount = GetComponent<DealDamageToPlayer>() ? GetComponent<DealDamageToPlayer>().damageAmount : GetComponent<DealDamageToEnemy>().damageAmount;
+          }
      }
 
      public void Update()
