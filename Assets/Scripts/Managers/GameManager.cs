@@ -318,7 +318,7 @@ public class GameManager : MonoBehaviour
 
      public void ResetGameProgression()
      {
-          foreach (LoadAndSaveManager.GameStateData.GameLevelData level in stateManager.GameState.GameLevels)
+      foreach (LoadAndSaveManager.GameStateData.GameLevelData level in stateManager.GameState.GameLevels)
           {
                level.LevelUnlocked = false;
                level.PlayerScoreCombat = 0;

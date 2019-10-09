@@ -138,7 +138,7 @@ public class Player : MonoBehaviour
      public float BaseTime;
      private float timeCharging;
      private bool isCharging;
-     private float stun_Timer, slow, slow_Timer;
+     private float stun_Timer, slow, slow_Timer, snare_Timer;
 
      public Projectile laser;
      public Projectile chargedLaser;
@@ -147,6 +147,7 @@ public class Player : MonoBehaviour
      {
           PlayerToGodMode = false;
           stun_Timer = 0;
+          snare_Timer = 0;
           isInvincible = false;
           timeSpentInvincible = 1;
           timeCharging = 0;
@@ -228,22 +229,34 @@ public class Player : MonoBehaviour
                slow = 0;
           }
 
-          if (stun_Timer > 0)
+          if (snare_Timer > 0)
           {
                playerMoveController.Move(0, 0);
-               sprRend.enabled = true;
-               sprRend.color = new Color(1, 0.972f, 0.314f, 0.8f);
-               stun_Timer -= Time.deltaTime;
-               // sprRend.color = Color.yellow;
+               playerMoveController.canMove = false;
+               snare_Timer -= Time.deltaTime;
+               HandlePlayerActions();
           }
           else
           {
-               if (sprRend.color != new Color(1, 1, 1, 1))
+               if (stun_Timer > 0)
                {
-                    sprRend.color = new Color(1, 1, 1, 1);
+                    playerMoveController.Move(0, 0);
+                    sprRend.enabled = true;
+                    sprRend.color = new Color(1, 0.972f, 0.314f, 0.8f);
+                    stun_Timer -= Time.deltaTime;
+                    // sprRend.color = Color.yellow;
                }
-               HandlePlayerActions();
+               else
+               {
+                    if (sprRend.color != new Color(1, 1, 1, 1))
+                    {
+                         sprRend.color = new Color(1, 1, 1, 1);
+                    }
+                    HandlePlayerActions();
+               }
           }
+
+          
      }
 
      private void HandlePlayerActions()
@@ -312,29 +325,36 @@ public class Player : MonoBehaviour
                     timeCharging = 0;
                }
           }
-
-          arrowKeys.Update();
-          Vector2 direction = arrowKeys.GetMovementDirection();
-          playerMoveController.Move(direction);
-          if (direction != Vector2.zero)
+          if (snare_Timer <= 0)
           {
-               //Handle double taps for dashing
-               playerMoveController.Face(arrowKeys.GetFacing());
-               if (arrowKeys.IsDashing())
+               arrowKeys.Update();
+               Vector2 direction = arrowKeys.GetMovementDirection();
+               playerMoveController.Move(direction);
+               if (direction != Vector2.zero)
+               {
+                    //Handle double taps for dashing
+                    playerMoveController.Face(arrowKeys.GetFacing());
+                    if (arrowKeys.IsDashing())
+                    {
+                         playerMoveController.Dash();
+                    }
+               }
+
+               if (Input.GetButtonDown("Jump"))
                {
                     playerMoveController.Dash();
                }
-          }
-          
-          if (Input.GetButtonDown("Jump"))
-          {
-               playerMoveController.Dash();
           }
      }
 
      public void setStun(float st)
      {
           stun_Timer = st;
+     }
+
+     public void setSnare(float sn)
+     {
+          snare_Timer = sn;
      }
 
      public bool getStun()

@@ -141,7 +141,6 @@ public class Enemy : MonoBehaviour
                {
                     deathObject.GetComponent<SpriteRenderer>().sprite = deathSprite;
                     deathObject.transform.localScale = transform.localScale;
-                    Debug.Log(GetComponent<Health>().getKnockback() * 500);
                     deathObject.GetComponent<EnemyMoveController>().Knockback(GetComponent<Health>().getKnockback() * 5);
                }
           }

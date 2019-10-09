@@ -3,13 +3,16 @@ using System.Collections;
 
 public class TrapCollision : MonoBehaviour
 {
-     //private Trap trap;
+     private PressurePlate trap;
 
      public void OnTriggerExit2D(Collider2D other)
      {
+          
           if (other.gameObject.tag == "Player")
           {
-               // trap.activate();
+               trap = GetComponent<PressurePlate>();
+               //Make trap, pressureplate is a trap
+               trap.activate();
           }
      }
 
